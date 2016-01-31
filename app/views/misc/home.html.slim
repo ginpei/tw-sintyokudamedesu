@@ -1,0 +1,10 @@
+h1 進捗ダメです
+
+p
+  a href="#{login_path(:twitter)}" Twitter
+
+- if current_user
+  p
+    a href="#{misc_say_path}" 進捗ダメです
+  p
+    a href="#{logout_path}" Log out
