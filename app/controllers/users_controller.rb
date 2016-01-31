@@ -10,7 +10,11 @@ class UsersController < ApplicationController
     end
 
     msg = "#{line} #{root_url}"
-    tweet = client.update(msg)
-    redirect_to tweet.uri.to_s
+    begin
+      tweet = client.update!(msg)
+      redirect_to tweet.uri.to_s
+    rescue Twitter::Error::DuplicateStatus
+      render text: 'それはさっき言いました。作業に戻りなさい。'
+    end
   end
 end
