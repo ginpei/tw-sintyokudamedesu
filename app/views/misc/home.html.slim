@@ -3,8 +3,9 @@ h1 進捗ダメです
 - if current_user
   p
     a href="#{logout_path}" ログアウト
-  = form_tag users_say_path do |f|
-    = submit_tag '進捗ダメですと言う'
 - else
   p
     a href="#{login_path(:twitter)}" Twitterでログイン
+
+= form_tag users_say_path do |f|
+  = submit_tag '進捗ダメですと言う', disabled: !current_user
