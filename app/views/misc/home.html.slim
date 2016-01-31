@@ -1,10 +1,10 @@
 h1 進捗ダメです
 
-p
-  a href="#{login_path(:twitter)}" Twitter
-
 - if current_user
-  = form_tag users_say_path do |f|
-    = submit_tag '進捗ダメです'
   p
-    a href="#{logout_path}" Log out
+    a href="#{logout_path}" ログアウト
+  = form_tag users_say_path do |f|
+    = submit_tag '進捗ダメですと言う'
+- else
+  p
+    a href="#{login_path(:twitter)}" Twitterでログイン
