@@ -10,9 +10,8 @@ class UsersController < ApplicationController
     end
 
     msg = "進捗ダメです #{root_url}"
-    client.update(msg)
-
-    redirect_to root_path
+    tweet = client.update(msg)
+    redirect_to tweet.uri.to_s
   end
 
   # GET /users
