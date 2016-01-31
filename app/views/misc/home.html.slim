@@ -8,7 +8,9 @@ h1 進捗ダメです
     a.js-login href="#{login_path(:twitter)}" Twitterでログイン
 
 = form_tag users_say_path do |f|
-  = submit_tag '進捗ダメですと言う', disabled: !current_user
+  = button_tag '進捗どうですかと言う', disabled: !current_user, name: 'line', value: '進捗どうですか'
+  |  
+  = button_tag '進捗ダメですと言う', disabled: !current_user, name: 'line', value: '進捗ダメです'
 
 p
   a href="https://twitter.com/ginpei_jp/status/693875435994771456" 進捗ダメですと言った例

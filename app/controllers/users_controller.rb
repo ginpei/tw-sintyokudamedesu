@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   def say
+    line = params[:line]
+
     client = Twitter::REST::Client.new do |config|
       config.consumer_key = ENV["TWITTER_KEY"]
       config.consumer_secret = ENV["TWITTER_SECRET"]
@@ -7,7 +9,7 @@ class UsersController < ApplicationController
       config.access_token_secret = current_user.oauth_secret
     end
 
-    msg = "進捗ダメです #{root_url}"
+    msg = "#{line} #{root_url}"
     tweet = client.update(msg)
     redirect_to tweet.uri.to_s
   end
